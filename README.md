@@ -59,7 +59,7 @@
     <pre>conda activate EGen-01</pre>
 </ol>
 <h3>(Optional) Setup you command line interface for better readability</h3>
-    <pre>export PS1="\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "</pre>
+    <pre><span class="pl-k">export</span> PS1=<span class="pl-s">"\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "</span></pre>
 <h4>Installation</h4>
 <h4>Install the required packages</h4>
 <pre> pip install -r requirements.txt</pre>
