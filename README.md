@@ -22,8 +22,12 @@
 <div align="center">
 
 ## 🛠 Language and Tools
+<a href="https://fastapi.tiangolo.com">
 
- ![FastAPI https://fastapi.tiangolo.com](https://img.shields.io/badge/Fast%20API-%23009688?style=for-the-badge&logo=fastapi&logoColor=white)
+    ![FastAPI](https://img.shields.io/badge/Fast%20API-%23009688?style=for-the-badge&logo=fastapi&logoColor=white)
+    
+</a>
+
  ![Gunicorn](https://img.shields.io/badge/Gunicorn-%23499848?style=for-the-badge&logo=gunicorn&logoColor=white)(https://gunicorn.org/#docs)
  ![LangChain](https://img.shields.io/badge/LangChain-%231C3C3C?style=for-the-badge&logo=langchain&logoColor=white)(https://www.langchain.com)
  ![OpenAI](https://img.shields.io/badge/OpenAI-%23412991?style=for-the-badge&logo=openai&logoColor=white)(https://openai.com)
