@@ -7,7 +7,7 @@
  
 </div>
 
-#### The EGen-01 project aims to develop a highly advanced next-generation artificial intelligence (AI) personal assistant. This system is designed to provide users with unparalleled levels of support and efficiency in their daily lives.
+##### The EGen-01 project aims to develop a highly advanced next-generation artificial intelligence (AI) personal assistant. This system is designed to provide users with unparalleled levels of support and efficiency in their daily lives.
 
 <div align="center">
 
