@@ -52,11 +52,11 @@
 
 <h4 align="left">Install Python using MiniConda</h4>
 <ol>
-    <li> Download and install MiniConda from <a href="https://docs.anaconda.com/miniconda/#quick-command-line-install"></a></li>
+    <li> Download and install MiniConda from <a href="https://docs.anaconda.com/miniconda/#quick-command-line-install">here</a></li>
     <li> Create a new environment using the following command:</li>
-    <pre>$ conda create -n EGen-01 python=3.12.6</pre>
+    <pre>conda create -n EGen-01 python=3.12.6</pre>
     <li> Activate the environment:
-    <pre>$ conda activate EGen-01</pre>
+    <pre>conda activate EGen-01</pre>
 </ol>
 <h3>(Optional) Setup you command line interface for better readability</h3>
     <pre>export PS1="\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "</pre>
