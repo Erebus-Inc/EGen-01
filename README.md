@@ -1,5 +1,5 @@
 <h1 align="center">EGen-01</h1>
-
+<img src="https://img.shields.io/badge/ErebusTN-%20?style=for-the-badge&logo=devdotto&logoColor=%23faf9f8&logoSize=auto&label=Dev%20%3A%20&color=%238b0000&link=https%3A%2F%2Fgithub.com%2FErebusTN" >
 ###
 
 <h3 align="left">The EGen-01 project aims to develop a highly advanced next-generation artificial intelligence (AI) personal assistant. This system is designed to provide users with unparalleled levels of support and efficiency in their daily lives.</h3>
@@ -19,7 +19,7 @@
 ###
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Used%20Library%20%3A%20-%20?style=for-the-badge&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%235e5d5d&amp;link=https%3A%2F%2Ffastapi.tiangolo.com" height="40" alt="used logo"  />
+  <img src="https://img.shields.io/badge/Used%20Library%20%3A%20-%20?style=for-the-badge&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%235e5d5d" height="40" alt="used logo"  />
   <img src="https://img.shields.io/badge/Fast%20API%20-%20?style=for-the-badge&amp;logo=fastapi&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23009688&amp;link=https%3A%2F%2Ffastapi.tiangolo.com" height="40" alt="fastapi logo"  />
   <img src ="https://img.shields.io/badge/Gunicorn-%20?style=for-the-badge&amp;logo=gunicorn&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23499848&amp;link=https%3A%2F%2Fwww.uvicorn.org" height="40" alt="uvicorn logo">
   <img src ="https://img.shields.io/badge/LangChain-%20?style=for-the-badge&amp;logo=langchain&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%231C3C3C&amp;link=https%3A%2F%2Fwww.langchain.com" height="40" alt="langchain logo">
