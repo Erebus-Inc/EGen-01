@@ -1,19 +1,3 @@
-<div align="center">
-  <img height="150" src="https://c.tenor.com/zZOt7alSzAMAAAAd/tenor.gif"  />
-</div>
-
-###
-
-<br clear="both">
-
-<div align="center">
-  <a href="https://discord.gg/4MkFZAC4rC" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="discord logo"  />
-  </a>
-</div>
-
-###
-
 <h1 align="center">EGen-01</h1>
 
 ###
@@ -35,10 +19,15 @@
 ###
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" height="40" alt="python logo"  />
+  <img src="https://img.shields.io/badge/Used%20Library%20%3A%20-%20?style=for-the-badge&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%235e5d5d&amp;link=https%3A%2F%2Ffastapi.tiangolo.com" height="40" alt="used logo"  />
   <img width="12" />
-  <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white&style=for-the-badge" height="40" alt="fastapi logo"  />
+  <img src="https://img.shields.io/badge/Fast%20API%20-%20?style=for-the-badge&amp;logo=fastapi&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23009688&amp;link=https%3A%2F%2Ffastapi.tiangolo.com" height="40" alt="fastapi logo"  />
   <img width="12" />
+  <img width="12">
+  <img src ="https://img.shields.io/badge/Gunicorn-%20?style=for-the-badge&amp;logo=gunicorn&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23499848&amp;link=https%3A%2F%2Fwww.uvicorn.org" height="40" alt="uvicorn logo">
+  <img width="12">
+  <img src ="https://img.shields.io/badge/LangChain-%20?style=for-the-badge&amp;logo=langchain&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%231C3C3C&amp;link=https%3A%2F%2Fwww.langchain.com" height="40" alt="langchain logo">
+  <img src ="https://img.shields.io/badge/OpenAI-%20?style=for-the-badge&amp;logo=openai&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23412991&amp;link=https%3A%2F%2Fopenai.com" height="40" alt="openai logo">
   <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge" height="40" alt="docker logo"  />
 </div>
 
@@ -60,6 +49,16 @@
 
 <div align="center">
   <img src="https://streak-stats.demolab.com?user=ErebusTN&locale=en&mode=daily&theme=dracula&hide_border=false&border_radius=5&order=3" height="150" alt="streak graph"  />
+</div>
+
+###
+
+<br clear="both">
+
+<div align="center">
+  <a href="https://discord.gg/4MkFZAC4rC" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/discord/default.svg" width="120" height="50" alt="discord logo"  />
+  </a>
 </div>
 
 ###
