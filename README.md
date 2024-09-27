@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://i.giphy.com/bGgsc5mWoryfgKBx1u.webp" alt="AI GIF" width="150"/>
+<img src="https://i.giphy.com/bGgsc5mWoryfgKBx1u.webp" alt="AI GIF" width="200"/>
 </div>
 <div align="center">
 
