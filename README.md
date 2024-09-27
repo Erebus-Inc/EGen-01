@@ -1,35 +1,71 @@
-# EGen-01
-The EGen-01 project aims to develop a highly advanced next-generation artificial intelligence (AI) personal assistant. This system is designed to provide users with unparalleled levels of support and efficiency in their daily lives.
-
 <div align="center">
-  <img src="https://img.shields.io/badge/ErebusTN-%20?style=for-the-badge&logo=devdotto&logoColor=%23faf9f8&logoSize=auto&label=Dev%20%3A%20&color=%238b0000&link=https%3A%2F%2Fgithub.com%2FErebusTN" height="30" alt="Dev : ErebusTN"  />
-  <img width="12" /><br>
-  <img src="https://img.shields.io/badge/Used%20Library-%20?style=for-the-badge&logoColor=%23faf9f8&logoSize=auto&color=%234d4d4d&link=https%3A%2F%2Fgithub.com%2FErebusTN" height="30" alt="used : "  />
-  <img width="12" />
-  <img src="https://img.shields.io/badge/Fast%20API%20-%20?style=for-the-badge&amp;logo=fastapi&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23009688&amp;link=https%3A%2F%2Ffastapi.tiangolo.com" height="30" alt="fastapi"  />
-  <img width="12" />
-  <img src="https://img.shields.io/badge/Gunicorn-%20?style=for-the-badge&amp;logo=gunicorn&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23499848&amp;link=https%3A%2F%2Fwww.uvicorn.org" height="30" alt="uvicorn"  />
-  <img width="12" />
-  <img src="https://img.shields.io/badge/LangChain-%20?style=for-the-badge&amp;logo=langchain&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%231C3C3C&amp;link=https%3A%2F%2Fwww.langchain.com" height="30" alt="langchain"  />
-  <img width="12" />
-  <img src="https://img.shields.io/badge/OpenAI-%20?style=for-the-badge&amp;logo=openai&amp;logoColor=%23faf9f8&amp;logoSize=auto&amp;color=%23412991&amp;link=https%3A%2F%2Fopenai.com" height="30" alt="open AI"  />
-</div>
-
-###
-
-<div align="center">
-  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="youtube logo"  />
-  <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="instagram logo"  />
-  <img src="https://img.shields.io/static/v1?message=Twitch&logo=twitch&label=&color=9146FF&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="twitch logo"  />
-  <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="discord logo"  />
-  <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
-  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
+  <img height="150" src="https://c.tenor.com/zZOt7alSzAMAAAAd/tenor.gif"  />
 </div>
 
 ###
 
 <br clear="both">
 
-<img src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/snake.svg" alt="Snake animation" />
+<div align="center">
+  <a href="https://discord.gg/4MkFZAC4rC" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="discord logo"  />
+  </a>
+</div>
+
+###
+
+<h1 align="center">EGen-01</h1>
+
+###
+
+<h3 align="left">The EGen-01 project aims to develop a highly advanced next-generation artificial intelligence (AI) personal assistant. This system is designed to provide users with unparalleled levels of support and efficiency in their daily lives.</h3>
+
+###
+
+<h2 align="center">Key Features</h2>
+
+###
+
+<p align="left">Highly Contextual Understanding : EGen-01 utilizes sophisticated natural language processing (NLP)<br>capabilities to understand user requests and adapt to individual preferences.<br>Proactive Assistance : The AI assistant actively seeks to anticipate and resolve problems, ensuring seamless<br>productivity and reduced stress levels.<br>Multi-Domain Expertise : EGen-01 has been engineered to provide expert-level knowledge in a wide range of<br>subjects, making it an invaluable resource for users seeking information or guidance.</p>
+
+###
+
+<h2 align="center">🛠 Language and tools</h2>
+
+###
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" height="40" alt="python logo"  />
+  <img width="12" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white&style=for-the-badge" height="40" alt="fastapi logo"  />
+  <img width="12" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge" height="40" alt="docker logo"  />
+</div>
+
+###
+
+<h2 align="center">🛠️ Installation</h2>
+
+###
+
+<div align="center">
+  <img height="200" src="https://i.giphy.com/MdA16VIoXKKxNE8Stk.webp"  />
+</div>
+
+###
+
+<h2 align="center">🔥   My Stats :</h2>
+
+###
+
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=ErebusTN&locale=en&mode=daily&theme=dracula&hide_border=false&border_radius=5&order=3" height="150" alt="streak graph"  />
+</div>
+
+###
+
+<div align="center">
+  <img src="https://profile-counter.glitch.me/ErebusTN/count.svg?"  />
+</div>
 
 ###
