@@ -37,7 +37,7 @@
 ###
 
 <div align="center">
-  <img height="200" src="https://i.giphy.com/MdA16VIoXKKxNE8Stk.webp"  />
+  <img height="200" src="https://i.giphy.com/bGgsc5mWoryfgKBx1u.webp"  />
 </div>
 
 ###
