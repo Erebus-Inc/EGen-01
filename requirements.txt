@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+pydantic-settings
+aiofiles
+langchain
+PyMuPDF
+motor
+pydantic-mongo
+openai
+cohere
+qdrant-client
+wheel
+setuptools

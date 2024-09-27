@@ -61,8 +61,11 @@
 <h3>(Optional) Setup you command line interface for better readability</h3>
     <pre>export PS1="\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "<pre>
 <h4>Installation</h4>
-<p>Install the required packages</p>
-<pre> pip install wheel setuptools fastapi uvicorn[standard] python-multipart python-dotenv pydantic-settings aiofiles langchain pymupdf motor pydantic-mongo openai cohere qdrant-client</pre>
+<h4>Install the required packages</h4>
+<pre> pip install -r requirements.txt</pre>
+<h4>Setup the environment variables</h4>
+<pre>cp .env.example .env</pre>
+<p>Set your environment variables in the <code>.env</code> file. Like <code>OPENAI_API_KEY</code> value</p>
 
 ###
 
