@@ -1,5 +1,7 @@
 <h1 align="center">EGen-01</h1>
-<img align="center" src="https://img.shields.io/badge/ErebusTN-%20?style=for-the-badge&logo=devdotto&logoColor=%23faf9f8&logoSize=auto&label=Dev%20%3A%20&color=%238b0000&link=https%3A%2F%2Fgithub.com%2FErebusTN" />
+<div align="center">
+<img src="https://img.shields.io/badge/ErebusTN-%20?style=for-the-badge&logo=devdotto&logoColor=%23faf9f8&logoSize=auto&label=Dev%20%3A%20&color=%238b0000&link=https%3A%2F%2Fgithub.com%2FErebusTN" />
+</div>
 
 ###
 
