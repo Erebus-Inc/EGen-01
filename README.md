@@ -13,6 +13,7 @@
 
 ## Key Features
 </div>
+
 - **Highly Contextual Understanding**: EGen-01 utilizes sophisticated natural language processing (NLP) capabilities to understand user requests and adapt to individual preferences.
 - **Proactive Assistance**: The AI assistant actively seeks to anticipate and resolve problems, ensuring seamless productivity and reduced stress levels.
 - **Multi-Domain Expertise**: EGen-01 has been engineered to provide expert-level knowledge in a wide range of subjects, making it an invaluable resource for users seeking information or guidance.
