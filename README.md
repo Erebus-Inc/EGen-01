@@ -1,3 +1,8 @@
+<div align="center">
+  <img height="200" src="https://i.giphy.com/bGgsc5mWoryfgKBx1u.webp"  />
+</div>
+
+###
 <h1 align="center">EGen-01</h1>
 <div align="center">
 <img src="https://img.shields.io/badge/ErebusTN-%20?style=for-the-badge&logo=devdotto&logoColor=%23faf9f8&logoSize=auto&label=Dev%20%3A%20&color=%238b0000&link=https%3A%2F%2Fgithub.com%2FErebusTN" />
@@ -35,10 +40,29 @@
 <h2 align="center">🛠️ Installation</h2>
 
 ###
+<h3 align="center">Requirements</h3>
 
-<div align="center">
-  <img height="200" src="https://i.giphy.com/bGgsc5mWoryfgKBx1u.webp"  />
-</div>
+###
+
+<br clear="both">
+
+<a href="https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe" align="left"> Python 3.12.6</a> 
+
+###
+
+<h4 align="left">Install Python using MiniConda</h4>
+<ol>
+    <li> Download and install MiniConda from <a href="https://docs.anaconda.com/miniconda/#quick-command-line-install"></a></li>
+    <li> Create a new environment using the following command:</li>
+    <pre>$ conda create -n EGen-01 python=3.12.6</pre>
+    <li> Activate the environment:
+    <pre>$ conda activate EGen-01</pre>
+</ol>
+<h3>(Optional) Setup you command line interface for better readability</h3>
+    <pre>export PS1="\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "<pre>
+<h4>Installation</h4>
+<p>Install the required packages</p>
+<pre> pip install wheel setuptools fastapi uvicorn[standard] python-multipart python-dotenv pydantic-settings aiofiles langchain pymupdf motor pydantic-mongo openai cohere qdrant-client</pre>
 
 ###
 
