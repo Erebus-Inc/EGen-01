@@ -14,3 +14,4 @@ cohere==5.10.0
 qdrant-client==1.11.3
 wheel==0.44.0
 setuptools==75.1.0
+pydantic==2.9.2

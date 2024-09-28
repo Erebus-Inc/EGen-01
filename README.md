@@ -74,6 +74,12 @@ cp .env.example .env
 
 Set your environment variables in the `.env` file Example : `OPENAI_API_KEY=your_key`
 
+### Run the FastAPI server
+
+```bash
+uvicorn main:app --reload --host 0.0.0.0 --port 5000
+```
+
 
 <div align="center">
 
