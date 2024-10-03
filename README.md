@@ -34,8 +34,37 @@
 ## 🛠️ Installation
 
 ### Requirements
+#### Python 3.12.6 for : ####
+- [**Windows** ](https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe)
+- [**MacOs** ](https://www.python.org/ftp/python/3.12.7/python-3.12.7-macos11.pkg)
+- **Linux Version Update**:
 
-- [Python 3.12.6](https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe)
+```bash
+python3 --version
+```
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+```bash
+sudo add-apt-repository ppa:deadsnakes/ppa
+```
+```bash
+sudo apt update
+```
+```bash
+apt list | grep python3.12
+```
+<div align="center">
+<img src="https://cloudbytes.dev/images/99999980-apt_list.png" alt="AI GIF" width=""/>
+</div>
+<div align="center">
+
+if you see somthing like this output you can install python 3.12
+```bash
+sudo apt install python3.12
+```
+
 
 ### Install Python using MiniConda
 
