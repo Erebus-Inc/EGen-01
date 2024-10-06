@@ -5,7 +5,10 @@ from controllers import dataController,projectController
 from Models import responseSignals
 import os
 import aiofiles
+import logging
 ####
+
+logger = logging.getLogger('uvicorn.errors')
 
 data_route = APIRouter()
 data_Controller = dataController()
@@ -29,6 +32,7 @@ async def upload(project_id: str,file : UploadFile , app_settings : Settings = D
             while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
                 await f.write(chunk)
     except Exception as e:
+        logger.error("Error while uploading file: {e}")
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
             content={
