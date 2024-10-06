@@ -24,10 +24,17 @@ async def upload(project_id: str,file : UploadFile , app_settings : Settings = D
     
     projectDir = projectController().getProjectPath(project_id=project_id)
     filePath = data_Controller.name_Generate(org = file.filename,project_id=project_id)
-    
-    async with aiofiles.open(filePath,"wb") as f:
-        while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
-            await f.write(chunk)
+    try:
+        async with aiofiles.open(filePath,"wb") as f:
+            while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
+                await f.write(chunk)
+    except Exception as e:
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={
+                "signal": resultSignal
+            }
+        )
             
     return JSONResponse(
         status_code=status.HTTP_200_OK,
