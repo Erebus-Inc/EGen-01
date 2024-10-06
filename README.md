@@ -57,10 +57,11 @@ apt list | grep python3.12
 ```
 <div align="center">
 <img src="https://cloudbytes.dev/images/99999980-apt_list.png" alt="AI GIF" width=""/>
-</div>
-<div align="center">
+
 
 if you see somthing like this output you can install python 3.12
+</div>
+
 ```bash
 sudo apt install python3.12
 ```
