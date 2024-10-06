@@ -32,7 +32,7 @@ async def upload(project_id: str,file : UploadFile , app_settings : Settings = D
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
             content={
-                "signal": resultSignal
+                "signal": responseSignals.FILE_UPLOAD_FAILED.value
             }
         )
             
