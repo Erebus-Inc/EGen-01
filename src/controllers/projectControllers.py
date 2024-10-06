@@ -9,7 +9,7 @@ class projectController(baseController):
         super().__init__()
     
     def getProjectPath(self,project_id:str):
-        projectDir = os.join(
+        projectDir = os.path.join(
             self.fileDire,
             project_id
         )
