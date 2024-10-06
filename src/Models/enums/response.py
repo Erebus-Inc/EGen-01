@@ -6,7 +6,7 @@ class responseSignals(Enum):
     FILE_TYPE_NOT_SUPPORTED = "File is not allowed to be uploaded the type is not supported"
     FILE_SIZE_EXCEEDED = "File is too large to be uploaded "
     FILE_UPLOAD_FAILED = "File upload failed"
-    UPLOAD_SUCCESSFULLY = "File uploaded successfully."
+    FILE_UPLOAD_SUCCESSFULLY = "File uploaded successfully."
     FILE_NOT_FOUND = "File not found"
     PROJECT_NOT_FOUND = "Project not found"
     USER_NOT_FOUND = "User not found"
