@@ -21,11 +21,11 @@ class dataController(baseController):
         randomKey = self.random_string()
         projectPath = projectController().getProjectPath(project_id=project_id)
         new_file_Name = self.clean_file_name(org = org) 
-        new_file_path = os.path.join(projectPath,randomKey+"_"+new_file_Name)
+        new_file_path = os.path.join(projectPath,randomKey+"_"+org)
         
         while os.path.exists(new_file_path):
             randomKey = self.random_string()
-            new_file_path = os.path.join(projectPath,randomKey+"_"+new_file_Name)
+            new_file_path = os.path.join(projectPath,randomKey+"_"+org)
             
         return new_file_path
         
