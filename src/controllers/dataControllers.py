@@ -17,22 +17,25 @@ class dataController(baseController):
         
         return True , responseSignals.FILE_VALIDATED_SUCCESS.value
     
-    def name_Generate(self,org:str,project_id:str):
+    def path_Generate(self,org:str,project_id:str):
         randomKey = self.random_string()
         projectPath = projectController().getProjectPath(project_id=project_id)
-        new_file_Name = self.clean_file_name(org = org) 
-        new_file_path = os.path.join(projectPath,randomKey+"_"+org)
+        new_file_Name = self.get_clean_file_name(orig_file_name = org) 
+        new_file_path = os.path.join(projectPath,randomKey+"_"+new_file_Name)
         
         while os.path.exists(new_file_path):
             randomKey = self.random_string()
-            new_file_path = os.path.join(projectPath,randomKey+"_"+org)
+            new_file_path = os.path.join(projectPath,randomKey+"_"+new_file_Name)
             
-        return new_file_path
+        return new_file_path,randomKey+"_"+new_file_Name
         
-    def clean_file_name(self,org:str):
-        new_file_Name = re.sub(r'[^\w.]','',org.strip())
-        
-        new_file_Name =  new_file_Name.replace("","_")
-        
-        return new_file_Name
+    def get_clean_file_name(self, orig_file_name: str):
+
+        # remove any special characters, except underscore and .
+        cleaned_file_name = re.sub(r'[^\w.]', '', orig_file_name.strip())
+
+        # replace spaces with underscore
+        cleaned_file_name = cleaned_file_name.replace(" ", "_")
+
+        return cleaned_file_name
     
