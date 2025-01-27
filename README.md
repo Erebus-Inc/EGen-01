@@ -124,5 +124,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 5000
 ![Static Badge](https://img.shields.io/badge/The%20Underworld%20server-%20?style=for-the-badge&logo=discord&logoColor=%23faf9f8&logoSize=auto&color=%235865F2&link=https%3A%2F%2Fgithub.com%2FErebusTN)
 
 ## Note 
-this is my first project and my first time using this technology if you want to help me to improve this i will thank you.
+This is my first project and my first experience working with this technology. I'm excited to learn and grow as a developer, and any feedback or contributions to help improve this project are greatly appreciated.
+
+Thank you in advance for your support and guidance!
 </div>
