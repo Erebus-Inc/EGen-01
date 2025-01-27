@@ -116,7 +116,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 5000
 ## 🔥 My Stats
 
 <div align="center">
-<img src="[https://i.giphy.com/bGgsc5mWoryfgKBx1u.webp](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG95MmVjMThxZXZvMWNlaDN4eDZyaTlzbWNsMjI0ZDB4NDk1ejQzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4mvmPLn362kw8C11RF/giphy.gif)" alt="AI GIF" width="200"/>
+<img src="[[https://i.giphy.com/bGgsc5mWoryfgKBx1u.webp](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG95MmVjMThxZXZvMWNlaDN4eDZyaTlzbWNsMjI0ZDB4NDk1ejQzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4mvmPLn362kw8C11RF/giphy.gif)](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG95MmVjMThxZXZvMWNlaDN4eDZyaTlzbWNsMjI0ZDB4NDk1ejQzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4mvmPLn362kw8C11RF/giphy.gif)" alt="AI GIF" width="200"/>
 </div>
 <div align="center">
 
