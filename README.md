@@ -115,7 +115,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 5000
 
 ## 🔥 My Stats
 
-![Streak Graph](https://streak-stats.demolab.com?user=ErebusTN&locale=en&mode=daily&theme=dracula&hide_border=false&border_radius=5&order=3)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=EGen&theme=dark&hide_border=true&date_format=M%20j%5B%2C%20Y%5D)](https://git.io/streak-stats)
 
 
 
