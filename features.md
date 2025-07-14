@@ -120,3 +120,7 @@ Here is a **detailed features list** for the **EGen V1** AI model based on the *
 * Sandbox testing zone for self-healing routines
 
 ---
+
+> **Security Notice**: All current PyTorch releases (<=2.7.1) are affected by a critical vulnerability in `torch.nn.functional.ctc_loss` that can lead to denial of service. There is currently no patched version available. Avoid using CTC loss or running untrusted code until a fix is released. See [PyTorch issue](https://github.com/pytorch/pytorch/issues) for updates.
+
+---

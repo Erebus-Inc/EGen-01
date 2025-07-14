@@ -1,6 +1,8 @@
 # Core dependencies
 prometheus-client==0.17.1
-torch==2.7.1
+# torch is NOT pinned due to a critical vulnerability in all versions <=2.7.1 affecting ctc_loss
+# See README.md for details and monitor PyTorch for a patched release
+# torch==2.7.1  # (commented out due to vulnerability)
 tensorflow>=2.18.1,<2.20.0
 transformers==4.53.2
 langchain==0.3.26
@@ -13,7 +15,7 @@ seaborn==0.13.2
 # Training and optimization
 wandb==0.17.0
 optuna==3.6.1
-ray[tune]==2.9.1
+ray[tune]>=2.43.0
 accelerate==0.28.0
 bitsandbytes==0.43.0
 triton==2.1.0
@@ -30,14 +32,14 @@ grafana-api==0.9.3
 elasticsearch==8.13.0
 
 # Web interface
-streamlit==1.35.0
+streamlit>=1.37.0
 plotly==5.21.0
 dash==2.16.2
 
 # Security
 pydantic==2.7.1
 python-dotenv==1.0.1
-cryptography==42.0.5
+cryptography>=44.0.1
 
 # Testing
 pytest==8.2.1
