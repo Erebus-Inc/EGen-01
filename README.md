@@ -124,7 +124,7 @@ python -m assistant.api  # Personal assistant
 - **Email**: [mouhebga62@gmail.com](mailto:mouhebga62@gmail.com)
 - **Discord**: [The Underworld Server](https://discord.gg/example)
 - **Issues**: [GitHub Issues](https://github.com/ErebusTN/EGen/issues)
-- **Documentation**: [docs.egen.ai](https://docs.egen.ai)
+- **Documentation**: [HuggingFace](https://huggingface.co/ErebusTN/EGen_V1)
 
 > **Note**: EGen-01 represents my first major AI project. Contributions and feedback are welcome as we evolve this unified platform!
 ```
