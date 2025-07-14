@@ -1,0 +1,48 @@
+# Core dependencies
+prometheus-client==0.17.1
+torch==2.7.1
+tensorflow>=2.18.1,<2.20.0
+transformers==4.53.2
+langchain==0.3.26
+numpy==1.27.0
+pandas==2.2.2
+scipy==1.13.0
+matplotlib==3.9.0
+seaborn==0.13.2
+
+# Training and optimization
+wandb==0.17.0
+optuna==3.6.1
+ray[tune]==2.9.1
+accelerate==0.28.0
+bitsandbytes==0.43.0
+triton==2.1.0
+
+# Deployment and monitoring
+fastapi==0.111.0
+uvicorn==0.29.0
+docker==7.1.0
+kubernetes==29.0.0
+prometheus-multiproc-dir==1.0.0
+prometheus-elasticsearch-exporter==0.13.0
+prometheus-flask-exporter==0.26.0
+grafana-api==0.9.3
+elasticsearch==8.13.0
+
+# Web interface
+streamlit==1.35.0
+plotly==5.21.0
+dash==2.16.2
+
+# Security
+pydantic==2.7.1
+python-dotenv==1.0.1
+cryptography==42.0.5
+
+# Testing
+pytest==8.2.1
+pytest-cov==5.0.0
+
+# Documentation
+sphinx==7.3.7
+mkdocs==1.6.0

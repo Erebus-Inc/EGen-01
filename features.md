@@ -73,10 +73,12 @@ Here is a **detailed features list** for the **EGen V1** AI model based on the *
 ## 🧰 DevOps & Deployment
 
 * Runs on hybrid infrastructure (local GPU + cloud-ready)
-* Native support for NVIDIA L4 GPUs, 8 CPU cores or more
+* Native support for NVIDIA GPUs, 8 CPU cores or more
 * Dockerized microservice architecture
+* Docker Compose for local deployment
 * Optional Kubernetes orchestration
 * Automated deployment, restart, and rollback
+* Environment configuration via `.env` file
 
 ---
 

@@ -4,9 +4,9 @@
 
 **Enterprise AI & Personal Assistant Solutions**
 
-[![Version](https://img.shields.io/badge/version-1.0-brightgreen)](https://github.com/ErebusTN/EGen)
+[![Version](https://img.shields.io/badge/version-1.0-brightgreen)](https://github.com/Erebus-Inc/EGen-01.git)
 [![License](https://img.shields.io/badge/license-EGen%20V1-blue)](LICENSE)
-[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/ErebusTN/EGen_V1)
+[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Model-yellow)](https://huggingface.co/Erebus-Inc/EGen-01)
 [![Documentation](https://img.shields.io/badge/docs-latest-orange)](https://docs.egen.ai)
 </div>
 
@@ -76,13 +76,13 @@ response = assistant.query("Schedule meeting with team tomorrow")
 ### Prerequisites
 - Python 3.12+
 - NVIDIA GPU with CUDA
-- Docker & Kubernetes (enterprise)
+- Docker & Docker Compose (for enterprise features)
 - 16GB+ RAM
 
 ### Quick Start
 ```bash
 # Clone repository
-git clone https://github.com/ErebusTN/EGen.git
+git clone https://github.com/Erebus-Inc/EGen-01.git
 cd EGen
 
 # Setup environment (Conda recommended)
@@ -98,7 +98,23 @@ cp .env.example .env
 
 # Start services
 docker-compose up -d  # Enterprise features
-python -m assistant.api  # Personal assistant
+
+# Or run components individually
+python -m egen.api.main  # API server
+python -m egen.web.app  # Web interface
+python -m egen.cli  # Command-line interface
+```
+
+### Development Setup
+```bash
+# Install in development mode
+pip install -e .
+
+# Run tests
+python -m pytest
+
+# Generate documentation
+sphinx-build -b html docs/source docs/build
 ```
 
 ## 📊 Performance Benchmarks
@@ -123,8 +139,8 @@ python -m assistant.api  # Personal assistant
 ## 🤝 Support & Community
 - **Email**: [mouhebga62@gmail.com](mailto:mouhebga62@gmail.com)
 - **Discord**: [The Underworld Server](https://discord.gg/example)
-- **Issues**: [GitHub Issues](https://github.com/ErebusTN/EGen/issues)
-- **Documentation**: [HuggingFace](https://huggingface.co/ErebusTN/EGen_V1)
+- **Issues**: [GitHub Issues](https://github.com/Erebus-Inc/EGen-01/issues)
+- **Documentation**: [HuggingFace](https://huggingface.co/Erebus-Inc/EGen-01)
 
 > **Note**: EGen-01 represents my first major AI project. Contributions and feedback are welcome as we evolve this unified platform!
 ```
