@@ -27,22 +27,28 @@ class RepairEngine:
 
     def __init__(
         self,
-        repair_strategies_path: Optional[str] = None,
+        repair_strategies: Optional[Dict[str, Dict[str, any]]] = None,
         repair_log_path: str = "./logs/repairs.json",
         sandbox_dir: str = "./sandbox",
         enable_web_search: bool = False,
+        auto_apply_web_solutions: bool = False,
+        patch_validation: bool = True,
     ):
         """Initialize the repair engine.
         
         Args:
-            repair_strategies_path: Path to JSON file containing repair strategies
+            repair_strategies: Dictionary of repair strategies
             repair_log_path: Path to JSON file for logging repairs
             sandbox_dir: Directory for testing repairs in isolation
             enable_web_search: Whether to enable web search for unknown issues
+            auto_apply_web_solutions: Whether to automatically apply web solutions
+            patch_validation: Whether to validate patches before applying
         """
         self.repair_log_path = repair_log_path
         self.sandbox_dir = sandbox_dir
         self.enable_web_search = enable_web_search
+        self.auto_apply_web_solutions = auto_apply_web_solutions
+        self.patch_validation = patch_validation
         
         # Load repair strategies
         self.repair_strategies = self._load_repair_strategies(repair_strategies_path)
@@ -613,9 +619,83 @@ class RepairEngine:
             "output": None,
         }
         
-        # This is a placeholder for actual web search implementation
-        # In a real implementation, this would use a search API or web scraping
-        search_result["error"] = "Web search not implemented yet"
+        try:
+            # Construct search query from fault information
+            query_parts = []
+            
+            # Add fault type
+            if "type" in fault:
+                query_parts.append(fault["type"])
+            
+            # Add error message if available
+            if "matches" in fault and fault["matches"]:
+                # Take first match as primary error
+                error_msg = fault["matches"][0]
+                # Clean up error message for search
+                error_msg = re.sub(r'[^\w\s]', ' ', error_msg)
+                query_parts.append(error_msg)
+            
+            # Add context keywords
+            query_parts.extend(["python", "machine learning", "fix", "solution"])
+            
+            search_query = " ".join(query_parts)
+            
+            # Perform web search using requests (fallback implementation)
+            import requests
+            from urllib.parse import quote
+            
+            # Use DuckDuckGo Instant Answer API as a simple search option
+            encoded_query = quote(search_query)
+            search_url = f"https://api.duckduckgo.com/?q={encoded_query}&format=json&no_html=1&skip_disambig=1"
+            
+            response = requests.get(search_url, timeout=10)
+            response.raise_for_status()
+            
+            search_data = response.json()
+            
+            # Extract relevant information
+            solutions = []
+            
+            # Check abstract
+            if search_data.get("Abstract"):
+                solutions.append({
+                    "source": "abstract",
+                    "content": search_data["Abstract"],
+                    "url": search_data.get("AbstractURL", "")
+                })
+            
+            # Check related topics
+            if search_data.get("RelatedTopics"):
+                for topic in search_data["RelatedTopics"][:3]:  # Limit to 3 topics
+                    if isinstance(topic, dict) and "Text" in topic:
+                        solutions.append({
+                            "source": "related_topic",
+                            "content": topic["Text"],
+                            "url": topic.get("FirstURL", "")
+                        })
+            
+            # Generate repair suggestions based on search results
+            repair_suggestions = self._generate_repair_suggestions(fault, solutions)
+            
+            search_result["success"] = len(solutions) > 0
+            search_result["output"] = {
+                "query": search_query,
+                "solutions": solutions,
+                "repair_suggestions": repair_suggestions
+            }
+            
+            # Try to apply the first viable repair suggestion
+            if repair_suggestions and self.auto_apply_web_solutions:
+                for suggestion in repair_suggestions:
+                    if self._validate_repair_suggestion(suggestion):
+                        apply_result = self._apply_web_solution(suggestion, fault)
+                        search_result["output"]["applied_solution"] = apply_result
+                        search_result["success"] = apply_result["success"]
+                        break
+            
+        except Exception as e:
+            search_result["error"] = f"Web search failed: {str(e)}"
+            logger.error(f"Web search error: {e}", exc_info=True)
         
         return search_result
     
@@ -648,3 +728,174 @@ class RepairEngine:
                 json.dump(repairs, f, indent=2)
         except Exception as e:
             logger.error(f"Error logging repair: {e}", exc_info=True)
+    
+    def _generate_repair_suggestions(self, fault: Dict[str, Any], solutions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Generate repair suggestions based on web search results.
+        
+        Args:
+            fault: Fault dictionary
+            solutions: List of solutions from web search
+            
+        Returns:
+            List of repair suggestion dictionaries
+        """
+        suggestions = []
+        
+        try:
+            for solution in solutions:
+                content = solution.get("content", "")
+                
+                # Look for common repair patterns in the content
+                suggestion = {
+                    "type": "web_solution",
+                    "source": solution.get("source", ""),
+                    "url": solution.get("url", ""),
+                    "content": content,
+                    "actions": []
+                }
+                
+                # Extract actionable items from content
+                if "pip install" in content.lower():
+                    suggestion["actions"].append({
+                        "type": "command",
+                        "command": self._extract_pip_command(content),
+                        "description": "Install missing package"
+                    })
+                
+                if "config" in content.lower() and "update" in content.lower():
+                    suggestion["actions"].append({
+                        "type": "config_update",
+                        "description": "Update configuration based on web solution"
+                    })
+                
+                if "restart" in content.lower() or "reboot" in content.lower():
+                    suggestion["actions"].append({
+                        "type": "command",
+                        "command": "sudo systemctl restart",
+                        "description": "Restart service"
+                    })
+                
+                if suggestion["actions"]:
+                    suggestions.append(suggestion)
+        
+        except Exception as e:
+            logger.error(f"Error generating repair suggestions: {e}", exc_info=True)
+        
+        return suggestions
+    
+    def _extract_pip_command(self, content: str) -> str:
+        """Extract pip install command from content.
+        
+        Args:
+            content: Text content containing pip command
+            
+        Returns:
+            Extracted pip command
+        """
+        import re
+        
+        # Look for pip install patterns
+        patterns = [
+            r'pip install ([\w\-\.]+)',
+            r'pip3 install ([\w\-\.]+)',
+            r'python -m pip install ([\w\-\.]+)'
+        ]
+        
+        for pattern in patterns:
+            match = re.search(pattern, content, re.IGNORECASE)
+            if match:
+                package = match.group(1)
+                return f"pip install {package}"
+        
+        return "pip install -r requirements.txt"
+    
+    def _validate_repair_suggestion(self, suggestion: Dict[str, Any]) -> bool:
+        """Validate a repair suggestion before applying.
+        
+        Args:
+            suggestion: Repair suggestion dictionary
+            
+        Returns:
+            True if suggestion is valid and safe to apply
+        """
+        if not self.patch_validation:
+            return True
+        
+        try:
+            # Check if suggestion has actions
+            if not suggestion.get("actions"):
+                return False
+            
+            # Validate each action
+            for action in suggestion["actions"]:
+                action_type = action.get("type")
+                
+                # Validate command actions
+                if action_type == "command":
+                    command = action.get("command", "")
+                    
+                    # Block dangerous commands
+                    dangerous_patterns = [
+                        r'rm\s+-rf\s+/',
+                        r'sudo\s+rm',
+                        r'format\s+',
+                        r'mkfs\.',
+                        r'dd\s+if=',
+                        r'chmod\s+777'
+                    ]
+                    
+                    for pattern in dangerous_patterns:
+                        if re.search(pattern, command, re.IGNORECASE):
+                            logger.warning(f"Blocked dangerous command: {command}")
+                            return False
+                
+                # Validate config update actions
+                elif action_type == "config_update":
+                    # Ensure we have proper config update structure
+                    if not action.get("target") and not action.get("updates"):
+                        return False
+            
+            return True
+        
+        except Exception as e:
+            logger.error(f"Error validating repair suggestion: {e}", exc_info=True)
+            return False
+    
+    def _apply_web_solution(self, suggestion: Dict[str, Any], fault: Dict[str, Any]) -> Dict[str, Any]:
+        """Apply a web-based repair solution.
+        
+        Args:
+            suggestion: Repair suggestion from web search
+            fault: Original fault dictionary
+            
+        Returns:
+            Dictionary with application results
+        """
+        apply_result = {
+            "suggestion": suggestion,
+            "timestamp": datetime.now().isoformat(),
+            "success": False,
+            "actions_taken": [],
+            "error": None
+        }
+        
+        try:
+            # Apply each action in the suggestion
+            for action in suggestion.get("actions", []):
+                action_result = self._apply_action(action, fault)
+                apply_result["actions_taken"].append(action_result)
+                
+                # If any action succeeds, mark as successful
+                if action_result["success"]:
+                    apply_result["success"] = True
+                    break
+            
+            # If no actions succeeded, mark as failed
+            if not apply_result["success"] and apply_result["actions_taken"]:
+                apply_result["error"] = "All web solution actions failed"
+        
+        except Exception as e:
+            apply_result["error"] = str(e)
+            logger.error(f"Error applying web solution: {e}", exc_info=True)
+        
+        return apply_result
