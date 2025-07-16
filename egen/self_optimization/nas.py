@@ -375,11 +375,10 @@ class THL150NeuralArchitectureSearch(NeuralArchitectureSearch):
         
         # Train and evaluate
         try:
-            # This is a placeholder for actual training and evaluation
-            # In a real implementation, this would train the model and return validation perplexity
-            validation_perplexity = 0.0
-            
-            return validation_perplexity
+            # Train and evaluate
+            trainer.train()
+            eval_results = trainer.evaluate()
+            return eval_results.get('validation_perplexity', 100.0)
         except Exception as e:
             logger.error(f"Error in trial {trial.number}: {e}", exc_info=True)
             raise optuna.exceptions.TrialPruned()

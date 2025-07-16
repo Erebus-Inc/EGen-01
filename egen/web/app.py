@@ -135,7 +135,7 @@ elif page == "Model Playground":
 elif page == "Monitoring":
     st.header("System Monitoring")
     
-    tabs = st.tabs(["Performance", "Logs", "Resources"])
+    tabs = st.tabs(["Performance", "Logs", "Resources", "NAS Dashboard"])
     
     with tabs[0]:
         st.subheader("Performance Metrics")
@@ -160,6 +160,15 @@ elif page == "Monitoring":
 2025-06-15 12:35:03 INFO API server started at 0.0.0.0:8000""",
             height=300,
         )
+
+    with tabs[3]:
+        st.subheader("NAS Dashboard")
+        try:
+            nas_data = requests.get(f"{API_URL}/api/nas/architectures").json()
+            st.json(nas_data['current_best'])
+            st.line_chart(nas_data['history'])
+        except Exception as e:
+            st.error(f"Failed to load NAS data: {str(e)}")
     
     with tabs[2]:
         st.subheader("Resource Usage")
@@ -189,3 +198,11 @@ elif page == "Settings":
     
     if st.button("Save Settings"):
         st.success("Settings saved successfully!")
+
+# Added real-time NAS monitoring dashboard
+@app.route('/api/nas/architectures')
+def get_nas_architectures():
+    return jsonify({
+        'current_best': nas_controller.get_best_architecture(),
+        'history': nas_controller.get_search_history()
+    })

@@ -14,7 +14,7 @@ def model_config():
     return ModelConfig(
         hidden_size=128,
         num_layers=4,
-        num_heads=4,
+        num_attention_heads=4,
         intermediate_size=512,
         max_position_embeddings=1024,
         vocab_size=32000,

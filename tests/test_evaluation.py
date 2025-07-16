@@ -23,7 +23,7 @@ def model_config():
     return ModelConfig(
         hidden_size=128,
         num_layers=2,
-        num_heads=4,
+        num_attention_heads=4,
         intermediate_size=256,
         max_position_embeddings=512,
         vocab_size=1000,

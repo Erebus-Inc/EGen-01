@@ -24,6 +24,40 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+class PerformanceMemory:
+    """Tracks model performance metrics over time for optimization."""
+
+    def __init__(self):
+        self.records = []
+
+    def log(self, metrics: dict):
+        self.records.append({"timestamp": datetime.now().isoformat(), "metrics": metrics})
+
+    def get_history(self):
+        return self.records
+
+
+class OptimizationPipeline:
+    """Orchestrates continuous optimization steps."""
+
+    def __init__(self, tuner, nas, memory):
+        self.tuner = tuner
+        self.nas = nas
+        self.memory = memory
+
+    def run(self, model, data):
+        # Example: tune hyperparameters, run NAS, log results
+        best_params = self.tuner.tune(model, data)
+        best_arch = self.nas.search(model, data)
+        self.memory.log({"params": best_params, "arch": best_arch})
+        # Detect bottlenecks (stub)
+        return self.detect_bottlenecks(model, data)
+
+    def detect_bottlenecks(self, model, data):
+        # Stub: analyze model/data for inefficiencies
+        return {"bottleneck": None}
+
+
 class SelfOptimizationAgent:
     """Self-Optimization Agent for the EGen platform.
     
@@ -424,6 +458,39 @@ class SelfOptimizationAgent:
             return self.model
         
         return self.best_model
+    
+    def log_performance(self, metrics: dict):
+        """Log model performance metrics to performance memory."""
+        if not hasattr(self, "performance_memory"):
+            self.performance_memory = PerformanceMemory()
+        self.performance_memory.log(metrics)
+        logger.info(f"Logged performance metrics: {metrics}")
+
+    def get_performance_history(self) -> List[dict]:
+        """Get historical performance metrics."""
+        if hasattr(self, "performance_memory"):
+            return self.performance_memory.get_history()
+        return []
+
+    def run_continuous_optimization(self, data: Any):
+        """Run the continuous optimization pipeline."""
+        if not hasattr(self, "optimization_pipeline"):
+            self.optimization_pipeline = OptimizationPipeline(
+                self.hyperparameter_tuner,
+                self.nas,
+                getattr(self, "performance_memory", PerformanceMemory())
+            )
+        result = self.optimization_pipeline.run(self.model, data)
+        logger.info(f"Continuous optimization result: {result}")
+        return result
+
+    def detect_bottlenecks(self, model, data):
+        """Detect efficiency bottlenecks in the model/data."""
+        # Example: call OptimizationPipeline's method
+        if hasattr(self, "optimization_pipeline"):
+            return self.optimization_pipeline.detect_bottlenecks(model, data)
+        # Fallback stub
+        return {"bottleneck": None}
 
 
 class THL150SelfOptimizationAgent(SelfOptimizationAgent):

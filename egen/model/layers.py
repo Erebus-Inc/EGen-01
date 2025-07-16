@@ -20,8 +20,8 @@ class RotaryEmbedding(nn.Module):
         self.base = base
         
         # Create rotary position embedding cache
-        self.inv_freq = 1.0 / (base ** (torch.arange(0, dim, 2).float() / dim))
-        self.register_buffer("inv_freq", self.inv_freq, persistent=False)
+        inv_freq = 1.0 / (base ** (torch.arange(0, dim, 2).float() / dim))
+        self.register_buffer("inv_freq", inv_freq, persistent=False)
         self._set_cos_sin_cache(
             seq_len=max_position_embeddings, device=self.inv_freq.device, dtype=self.inv_freq.dtype
         )

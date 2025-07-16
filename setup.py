@@ -10,7 +10,7 @@ setup(
     name="egen",
     version="1.0.0",
     author="ErebusTN",
-    author_email="contact@egen.ai",
+    author_email="mouhebga62@gmail.com",
     description="EGen Platform: Unified AI Ecosystem with THL-150 architecture",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.12",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: ErebusTN License",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.12",

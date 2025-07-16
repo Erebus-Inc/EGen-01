@@ -25,6 +25,82 @@ from .processor import DataProcessor
 from .validator import DataValidator
 from .manager import DataManager
 
+# --- Stage 2: Data Autonomy Engine Extensions ---
+try:
+    from datasets import list_datasets, load_dataset
+except ImportError:
+    list_datasets = None
+    load_dataset = None
+import requests
+
+class DatasetSearcher:
+    """Searches Hugging Face Hub for datasets and retrieves them."""
+    def search(self, query: str, max_results: int = 10):
+        if list_datasets is None:
+            logger.warning("datasets library not installed.")
+            return []
+        all_datasets = list_datasets()
+        return [ds for ds in all_datasets if query.lower() in ds.lower()][:max_results]
+    def retrieve(self, name: str, split: str = "train"):
+        if load_dataset is None:
+            logger.warning("datasets library not installed.")
+            return None
+        try:
+            return load_dataset(name, split=split)
+        except Exception as e:
+            logger.error(f"Error loading dataset {name}: {e}")
+            return None
+
+class WebCorpusCrawler:
+    """Crawls web for open-source corpora (simple DuckDuckGo HTML parser)."""
+    def crawl(self, topic: str, max_results: int = 5):
+        url = f"https://duckduckgo.com/html/?q={topic}+open+corpus"
+        try:
+            resp = requests.get(url, timeout=10)
+            links = []
+            for line in resp.text.split('\n'):
+                if 'href="' in line:
+                    start = line.find('href="') + 6
+                    end = line.find('"', start)
+                    link = line[start:end]
+                    if link.startswith('http'):
+                        links.append(link)
+                    if len(links) >= max_results:
+                        break
+            return links
+        except Exception as e:
+            logger.error(f"Web crawling error: {e}")
+            return []
+
+class ContinuousLearner:
+    """Handles continuous learning with versioned datasets."""
+    def __init__(self):
+        self.versions = []
+    def update(self, dataset):
+        version = {"timestamp": datetime.now().isoformat(), "size": len(dataset) if hasattr(dataset, '__len__') else None}
+        self.versions.append(version)
+    def get_versions(self):
+        return self.versions
+
+class DataQualityAssessor:
+    """Assesses data quality and detects bias."""
+    def assess(self, dataset):
+        # Simple quality: check for duplicates and missing values
+        if hasattr(dataset, "to_pandas"):
+            df = dataset.to_pandas()
+            duplicates = df.duplicated().sum()
+            missing = df.isnull().sum().sum()
+            bias = self.detect_bias(df)
+            return {"duplicates": duplicates, "missing": missing, "bias": bias}
+        return {"duplicates": None, "missing": None, "bias": None}
+    def detect_bias(self, df):
+        # Simple class imbalance check for 'label' column
+        if "label" in df.columns:
+            counts = df["label"].value_counts()
+            if counts.max() > 2 * counts.min():
+                return True
+        return False
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -1159,57 +1235,51 @@ class DataAutonomyAgent:
             return False
     
     def export_learning_memory(self, export_path: str) -> bool:
-        """Export learning memory to file.
-        
+        """Export learning memory to file (production-ready).
         Args:
             export_path: Path to export file
-            
         Returns:
             True if successful, False otherwise
         """
         try:
-            # Convert sets to lists for JSON serialization
             exportable_memory = {
-                "successful_sources": list(self.learning_memory["successful_sources"]),
-                "failed_sources": list(self.learning_memory["failed_sources"]),
+                "successful_sources": sorted(list(self.learning_memory["successful_sources"])),
+                "failed_sources": sorted(list(self.learning_memory["failed_sources"])),
                 "quality_patterns": self.learning_memory["quality_patterns"],
                 "processing_preferences": self.learning_memory["processing_preferences"],
                 "validation_insights": self.learning_memory["validation_insights"]
             }
-            
             with open(export_path, 'w', encoding='utf-8') as f:
-                json.dump(exportable_memory, f, indent=2)
-            
+                json.dump(exportable_memory, f, indent=2, ensure_ascii=False)
             logger.info(f"Learning memory exported to {export_path}")
             return True
-        
         except Exception as e:
             logger.error(f"Error exporting learning memory: {e}", exc_info=True)
             return False
-    
+
     def import_learning_memory(self, import_path: str) -> bool:
-        """Import learning memory from file.
-        
+        """Import learning memory from file (production-ready).
         Args:
             import_path: Path to import file
-            
         Returns:
             True if successful, False otherwise
         """
         try:
+            if not os.path.exists(import_path):
+                logger.error(f"Import path does not exist: {import_path}")
+                return False
             with open(import_path, 'r', encoding='utf-8') as f:
                 imported_memory = json.load(f)
-            
-            # Convert lists back to sets
             self.learning_memory["successful_sources"] = set(imported_memory.get("successful_sources", []))
             self.learning_memory["failed_sources"] = set(imported_memory.get("failed_sources", []))
             self.learning_memory["quality_patterns"] = imported_memory.get("quality_patterns", {})
             self.learning_memory["processing_preferences"] = imported_memory.get("processing_preferences", {})
             self.learning_memory["validation_insights"] = imported_memory.get("validation_insights", {})
-            
             logger.info(f"Learning memory imported from {import_path}")
             return True
-        
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decode error importing learning memory: {e}", exc_info=True)
+            return False
         except Exception as e:
             logger.error(f"Error importing learning memory: {e}", exc_info=True)
             return False
