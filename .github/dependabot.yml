@@ -1,0 +1,40 @@
+# Dependabot configuration for Python AI model project
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    # Allow both direct and indirect updates
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    # Ignore patch updates for stable ML libraries to avoid breaking changes
+    ignore:
+      - dependency-name: "tensorflow"
+        update-types: ["version-update:semver-patch"]
+      - dependency-name: "torch"
+        update-types: ["version-update:semver-patch"]
+      - dependency-name: "transformers"
+        update-types: ["version-update:semver-patch"]
+    # Group ML framework updates together
+    groups:
+      ml-frameworks:
+        patterns:
+          - "tensorflow*"
+          - "torch*"
+          - "transformers*"
+          - "scikit-learn*"
+          - "numpy*"
+          - "pandas*"
+      dev-dependencies:
+        patterns:
+          - "pytest*"
+          - "black*"
+          - "flake8*"
+          - "mypy*"
+    # Custom commit message
+    commit-message:
+      prefix: "deps"
+      include: "scope"
